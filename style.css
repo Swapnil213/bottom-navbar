@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cir: #222382;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--cir);
+}
+
+.nav{
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.nav ul{
+    display: flex;
+    width: 350px;
+}
+
+.nav ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.nav ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.nav ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--cir);
+}
+
+.nav ul li.active a .icon{
+    transform: translateY(-32px);
+}
+
+.nav ul li a .text{
+    position: absolute;
+    color: var(--cir);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.nav ul li.active a .text{
+    transform: translateY(10px);
+    opacity: 1;
+}
+
+.magic{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #44a3cf;
+    border-radius: 50%;
+    border: 6px solid var(--cir);
+    transition: 0.5s;
+}
+
+.magic::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0px 0px var(--cir);
+}
+
+.magic::after{
+    content: '';
+    position: relative;
+    z-index: 99;
+    top: -50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 1px -10px 0px 0px var(--cir);
+}
+
+.nav ul li:nth-child(1).active ~ .magic {
+    transform: translateX(calc(70px * 0));
+}
+
+.nav ul li:nth-child(2).active ~ .magic {
+    transform: translateX(calc(70px * 1));
+}
+
+.nav ul li:nth-child(3).active ~ .magic {
+    transform: translateX(calc(70px * 2));
+}
+
+.nav ul li:nth-child(4).active ~ .magic {
+    transform: translateX(calc(70px * 3));
+}
+
+.nav ul li:nth-child(5).active ~ .magic {
+    transform: translateX(calc(70px * 4));
+}
